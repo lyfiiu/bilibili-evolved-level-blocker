@@ -1,0 +1,34 @@
+bili-comment-thread-renderer.be-level-blocked:not(.be-level-force-show),
+bili-comment-reply-renderer.be-level-blocked:not(.be-level-force-show),
+:host(.be-level-blocked:not(.be-level-force-show)) {
+  display: none !important;
+}
+
+:host(.be-level-blocked-collapsed:not(.be-level-temp-show):not(.be-level-force-show)) {
+  display: block !important;
+
+  > * {
+    display: none !important;
+  }
+
+  &::before {
+    content: attr(data-be-blocked-label);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.4;
+    cursor: pointer;
+    user-select: none;
+    color: var(--text3, #888);
+    background-color: rgba(136, 136, 136, 0.1);
+    border: 1px dashed rgba(136, 136, 136, 0.25);
+  }
+
+  &:hover::before {
+    background-color: rgba(136, 136, 136, 0.18);
+  }
+}
